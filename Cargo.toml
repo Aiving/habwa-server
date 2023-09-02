@@ -1,0 +1,37 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-compression = { version = "0.4.1", features = ["tokio", "gzip"] }
+async_zip = { version = "0.0.15", features = ["full"] }
+axum = { git = "https://github.com/tokio-rs/axum.git", features = [
+    "multipart",
+] }
+axum-extra = { git = "https://github.com/tokio-rs/axum.git", features = [
+    "typed-header",
+] }
+axum-server = { version = "0.5.1", features = ["tls-rustls"] }
+base64 = "0.21.3"
+chrono = { version = "0.4.26", features = ["serde"] }
+clap = { version = "4.3.24", features = ["derive"] }
+fastnbt = "2.4.4"
+hmac-sha256 = { version = "1.1.7", features = ["opt_size"] }
+lazy-regex = "3.0.1"
+notify = "6.1.1"
+rcon-client = "0.1.2"
+regex = "1.9.3"
+serde = { version = "1.0.186", features = ["derive"] }
+serde_json = "1.0.105"
+tokio = { version = "1.32.0", features = ["full"] }
+toml = "0.7.6"
+tower-http = { version = "0.4.3", features = ["cors"] }
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+opt-level = 3
