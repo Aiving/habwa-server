@@ -35,10 +35,10 @@ struct Args {
     #[arg(short, long)]
     ssl: bool,
 
-    #[arg(short, long)]
+    #[arg(short = 'k', long)]
     ssl_key: Option<String>,
 
-    #[arg(short, long)]
+    #[arg(short = 'c', long)]
     ssl_cert: Option<String>,
 
     #[arg(long, default_value_t = 3000)]
